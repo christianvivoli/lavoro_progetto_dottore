@@ -36,3 +36,19 @@
     transform: rotate(360deg);
   }
 }
+#tabella{
+  background-color: aqua;
+  border-collapse: collapse;
+  border: 2px solid black;
+  color: black;
+}
+#centroTR{
+  text-align: center;
+}
+#giorni{
+  text-align: center;
+}
+button{
+  width: 100%;
+  height: 50px;
+}
