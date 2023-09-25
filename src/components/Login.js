@@ -2,32 +2,40 @@ import React, { Component, useState } from 'react';
 import '../App.css';
 import App from '../App';
 
-class Login extends Component {
+
+class Login extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: "", password: ""
+        };
+    }
     render() {
-        const chiave = "entrato";
-        console.log(chiave);
-        if (chiave === "uscito") {
-            return (
-                <div className="App">
-                    <header className="App-header">
-                        <form>
-                            <label>
-                                <h3>login</h3>
-                                <p>email</p>
-                                <input type="email" name="email" />
-                                <p>password</p>
-                                <input type="password" name="password" />
-                                <br />
-                                <input type="submit" name="conferma" value="conferma" />
-                            </label>
-                        </form>
-                    </header>
-                </div>
-            );
-        }
-        if (chiave === "entrato") {
-            <App />
-        }
+        //risultato su console come portare i dati nella padre :index.js?
+        console.log(this.state.email);
+        console.log(this.state.password);
+        
+        const handlerSubmit = (e) =>{
+            e.preventDefault();
+            this.props.onSubmit("ciao");
+        };
+        return (
+            <div className="App">
+                <header className="App-header">
+                    <form onSubmit={this.handlerSubmit}>
+                        <label>
+                            <h3>login</h3>
+                            <p>email</p>
+                            <input type="email" name="email" onChange={(e) => this.setState({ email: e.target.value })} value={this.state.email}/>
+                            <p>password</p>
+                            <input type="password" name="password" onChange={(e) => this.setState({ password: e.target.value })} value={this.state.password}/>
+                            <br />
+                            <input type="submit" name="conferma" value="conferma" />
+                        </label>
+                    </form>
+                </header>
+            </div>
+        );
     }
 }
 
