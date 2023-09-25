@@ -7,7 +7,7 @@ class Prenotazioni extends Component {
             super(props);
             this.state = {
                 colore: "giallo"
-            };
+            };  
             console.log("construttore");
         }
     
